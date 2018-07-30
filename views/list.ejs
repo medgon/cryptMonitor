@@ -1,0 +1,5 @@
+<h1>Coin List Page!!!</h1>
+
+<% data["result"].forEach(function(coin){ %>
+    <li><strong><%= coin["MarketCurrency"]%></strong> - <%= coin["MarketCurrencyLong"]%></li>
+<% })%>
