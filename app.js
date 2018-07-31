@@ -1,10 +1,14 @@
-var express = require('express');
+var express = require("express");
 var app = express();
-var request = require('request');
+var request = require("request");
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
+
 app.get("/", function(req, res){
-    res.render("search");
+    res.render("landing");
 });
 
 app.get("/list", function(req, res){
@@ -20,10 +24,6 @@ app.get("/list", function(req, res){
     });
 });
 
-/*This is for running in cloud 9 server
-app.listen(process.env.PORT, process.env.IP, function () {
-    console.log("App has started, in port " +VIEWPORT);
-});*/
 
 /*Specify what port you want this app to run on locally*/
 app.listen(5000, function () {
