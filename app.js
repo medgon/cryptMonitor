@@ -1,10 +1,14 @@
 var express = require("express");
+var http = require('http');
+var reload = require('reload');
 var app = express();
 var request = require("request");
 var bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.set("views", "./views" );
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get("/", function(req, res){
@@ -21,7 +25,7 @@ app.get("/list", function(req, res){
             res.render("list", {data : data});
           //  res.send(data["data"]);
         }
-    });
+    } );
 });
 
 

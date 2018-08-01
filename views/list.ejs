@@ -2,15 +2,31 @@
 <div class="container">
     <header class="jumbotron">
         <div class="container">
-            <h1>Welcome To YelpCamp!</h1>
+            <h1>Crypto-Watcher</h1>
 
         </div>
     </header>
 
-    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-        <% data["data"].forEach(function(coin){ %>
-        <li><strong><%= coin["symbol"]%></strong> - <%= coin["name"]%> - $<%= coin["quotes"]["USD"]["price"]%> </li>
-        <% })%>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <ul class="list-group list-group-flush" style="text-align: left">
+                    <% data["data"].forEach(function(coin){ %>
+                    <li class="list-group-item"><strong><%= coin["rank"]%> <%= coin["symbol"]%></strong> - <%= coin["name"]%> - $<%= coin["quotes"]["USD"]["price"]%></li>
+                    <% })%>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
+<% include partials/footer %>
+
+<style>
+    .card {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+        box-sizing: border-box;
+        border-radius: 2px
+    }
+
+</style>
